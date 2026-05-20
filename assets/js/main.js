@@ -3,6 +3,7 @@
 
 import { mountMarquee } from './lib/marquee.js';
 import { hydrateGitHubStats } from './lib/github-stats.js';
+import { mountCopyEmail } from './lib/copy-email.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -253,7 +254,7 @@ const TECH_STACK = [
 // Bootstrap on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const [nav, hero, about, uses, featured, projects, experience, education] = await Promise.all([
+    const [nav, hero, about, uses, featured, projects, experience, education, profile, siteConfig] = await Promise.all([
       loadJSON('data/navigation.json'),
       loadJSON('data/hero.json'),
       loadJSON('data/about.json'),
@@ -262,6 +263,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       loadJSON('data/projects.json'),
       loadJSON('data/experience.json'),
       loadJSON('data/education.json'),
+      loadJSON('data/profile.json'),
+      loadJSON('data/site-config.json'),
     ]);
     renderNav(nav.menuItems ?? nav.items ?? nav);
     renderHero(hero);
@@ -282,6 +285,23 @@ document.addEventListener('DOMContentLoaded', async () => {
       'Elastic Cloud Image Recognition Service',
     ];
     renderAllRepos(projects, FEATURED_PROJECTS_JSON_TITLES);
+
+    // Copy-email behaviour
+    mountCopyEmail(profile.contact.email);
+
+    // Contact social icons (re-use hero socials minus the Email entry)
+    $('#contactSocial').innerHTML = (hero.socialLinks ?? [])
+      .filter((s) => s.platform !== 'Email')
+      .map(
+        (s) => `<a href="${s.url}" target="_blank" rel="noreferrer"
+       class="grid h-10 w-10 place-items-center rounded-full hairline text-text-mid hover:text-text-hi hover:border-accent-1/40 transition">
+       <i class="${s.icon}"></i></a>`,
+      )
+      .join('');
+
+    // Footer year + deploy date
+    $('#footerYear').textContent = String(siteConfig.settings?.year ?? new Date().getFullYear());
+    $('#footerDeployed').textContent = (siteConfig.settings?.deployTimestamp ?? new Date().toISOString()).slice(0, 10);
   } catch (err) {
     console.error('Bootstrap failed:', err);
   }
