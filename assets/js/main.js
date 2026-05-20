@@ -1,6 +1,8 @@
 // Orchestrates dynamic content loading + light interactions for the portfolio.
 // Each render function is small and isolated.
 
+import { mountMarquee } from './lib/marquee.js';
+
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
@@ -103,7 +105,26 @@ export function renderAbout(about, uses) {
 }
 
 // Reusable export so later tasks can import it
-export { $, $$, loadJSON, renderNav, renderHero, renderAbout };
+export { $, $$, loadJSON, renderNav, renderHero };
+
+const TECH_STACK = [
+  { name: 'Java' },
+  { name: 'Spring', logo: 'assets/images/logos/spring.svg' },
+  { name: 'Python' },
+  { name: 'Docker' },
+  { name: 'Kubernetes', logo: 'assets/images/logos/kubernetes.svg' },
+  { name: 'AWS' },
+  { name: 'Redis' },
+  { name: 'MySQL' },
+  { name: 'Node' },
+  { name: 'TypeScript' },
+  { name: 'Git' },
+  { name: 'GitHub', logo: 'assets/images/logos/github.svg' },
+  { name: 'React' },
+  { name: 'C++', logo: 'assets/images/logos/cpp.svg' },
+  { name: 'FastAPI' },
+  { name: 'LangChain' },
+];
 
 // Bootstrap on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', async () => {
@@ -117,6 +138,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderNav(nav.menuItems ?? nav.items ?? nav);
     renderHero(hero);
     renderAbout(about, uses);
+    mountMarquee(TECH_STACK);
   } catch (err) {
     console.error('Bootstrap failed:', err);
   }
