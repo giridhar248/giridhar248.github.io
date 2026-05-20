@@ -1,0 +1,42 @@
+{
+  "_instructions": "Featured projects shown as large cards above the all-repos list. Reference projects by exact title in projects.json.",
+  "sectionTitle": "Featured Projects",
+  "items": [
+    {
+      "title": "Distributed URL Shortener",
+      "tagline": "10K req/min · consistent hashing · Spring Boot + Redis",
+      "description": "A high-throughput shortening service using Spring Boot, Redis-backed caches, MySQL persistence, and Nginx LB. JMeter load-tested at 10K req/min with consistent-hashing key generation; full stack containerized via Docker Compose.",
+      "stack": ["Java", "Spring Boot", "Redis", "MySQL", "Docker", "Nginx"],
+      "repo": "https://github.com/giridhar248/url-shortener-service",
+      "demo": "",
+      "accent": "violet"
+    },
+    {
+      "title": "AI Medical Diagnostics Agents",
+      "tagline": "GPT-4o · multi-agent · 30% faster inter-agent comms",
+      "description": "Multi-agent diagnostic pipeline on GPT-4o with Python multithreading. Optimized inter-agent message routing dropped response time by 30%; deployed with Kubernetes orchestration.",
+      "stack": ["Python", "GPT-4o", "Kubernetes", "Docker"],
+      "repo": "https://github.com/giridhar248/Medical-Diagnostics-With-Ai-Agent",
+      "demo": "",
+      "accent": "cyan"
+    },
+    {
+      "title": "Elastic Cloud Image Recognition",
+      "tagline": "AWS · 100 concurrent inferences · auto-scaling EC2",
+      "description": "Cloud-native image classifier on AWS handling 100 concurrent requests via SQS + auto-scaling EC2. Node.js web tier handles uploads; Python inference workers pull from queue. CloudWatch dashboards for SLOs.",
+      "stack": ["Python", "Node.js", "AWS EC2", "SQS", "S3", "CloudWatch"],
+      "repo": "https://github.com/giridhar248/AWSight-Smart-Image-Classifier",
+      "demo": "",
+      "accent": "fuchsia"
+    },
+    {
+      "title": "AI Knowledge Assistant",
+      "tagline": "RAG · LangChain + LangGraph + Ollama · local-first",
+      "description": "Multi-agent system for querying personal knowledge bases. RAG over a vector store via LangChain + LangGraph, model-served locally with Ollama. Web UI for upload-and-ask flows.",
+      "stack": ["Python", "LangChain", "LangGraph", "Ollama", "FAISS"],
+      "repo": "https://github.com/giridhar248/AI-KNOWLEDGE-ASSISTANT",
+      "demo": "",
+      "accent": "violet"
+    }
+  ]
+}

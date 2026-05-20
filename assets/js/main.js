@@ -104,6 +104,78 @@ export function renderAbout(about, uses) {
     .join('');
 }
 
+const ACCENT_GRADIENT = {
+  violet: 'from-accent-1/60 to-accent-2/40',
+  cyan: 'from-accent-2/60 to-accent-3/40',
+  fuchsia: 'from-accent-3/60 to-accent-1/40',
+};
+
+function featuredCard(p) {
+  const grad = ACCENT_GRADIENT[p.accent] ?? ACCENT_GRADIENT.violet;
+  const stack = (p.stack ?? [])
+    .map((s) => `<span class="rounded-full hairline bg-surface px-2.5 py-1 text-xs text-text-mid">${s}</span>`)
+    .join('');
+  const repoSlug = (p.repo ?? '').replace('https://github.com/', '');
+  return `
+    <article class="group relative overflow-hidden rounded-2xl hairline bg-surface/60 backdrop-blur transition hover:-translate-y-0.5 hover:border-accent-1/40 reveal">
+      <div class="relative h-32 bg-gradient-to-br ${grad}">
+        <div class="absolute inset-0 dot-grid opacity-50"></div>
+        <div class="absolute bottom-3 left-4 font-mono text-xs text-white/70" data-repo-slug="${repoSlug}">
+          <span data-stats="stars">★ —</span>
+          <span class="mx-2">·</span>
+          <span data-stats="updated">updated —</span>
+        </div>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-bold text-text-hi">${p.title}</h3>
+        <p class="mt-1 text-xs text-accent-2">${p.tagline ?? ''}</p>
+        <p class="mt-3 text-sm text-text-mid">${p.description ?? ''}</p>
+        <div class="mt-4 flex flex-wrap gap-1.5">${stack}</div>
+        <div class="mt-5 flex items-center gap-4 text-sm">
+          ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noreferrer" class="text-text-hi hover:text-accent-2 transition"><i class="fab fa-github mr-1"></i>Repo</a>` : ''}
+          ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noreferrer" class="text-text-hi hover:text-accent-2 transition"><i class="fas fa-arrow-up-right-from-square mr-1"></i>Demo</a>` : ''}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+export function renderFeaturedProjects(featured) {
+  $('#featuredGrid').innerHTML = (featured.items ?? []).map(featuredCard).join('');
+}
+
+export function renderAllRepos(projects, featuredTitles) {
+  const featuredSet = new Set(featuredTitles);
+  const rest = (projects.projects ?? []).filter((p) => !featuredSet.has(p.title));
+  $('#allReposCount').textContent = `(${rest.length})`;
+
+  $('#allReposList').innerHTML = `
+    <table class="w-full text-sm">
+      <thead class="bg-surface/60 text-left text-xs uppercase tracking-widest text-text-lo">
+        <tr>
+          <th class="px-4 py-3">Repo</th>
+          <th class="px-4 py-3 hidden md:table-cell">Stack</th>
+          <th class="px-4 py-3 w-12"></th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-white/[0.06]">
+        ${rest
+          .map(
+            (p) => `
+          <tr class="bg-surface/40 hover:bg-surface/80 transition">
+            <td class="px-4 py-3 text-text-hi">${p.title}</td>
+            <td class="px-4 py-3 hidden md:table-cell text-text-mid">${(p.technologies ?? []).slice(0, 3).join(' · ') || '—'}</td>
+            <td class="px-4 py-3 text-right">
+              ${p.github ? `<a href="${p.github}" target="_blank" rel="noreferrer" class="text-text-mid hover:text-accent-2"><i class="fas fa-arrow-up-right-from-square"></i></a>` : ''}
+            </td>
+          </tr>`,
+          )
+          .join('')}
+      </tbody>
+    </table>
+  `;
+}
+
 // Reusable export so later tasks can import it
 export { $, $$, loadJSON, renderNav, renderHero };
 
@@ -129,16 +201,30 @@ const TECH_STACK = [
 // Bootstrap on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const [nav, hero, about, uses] = await Promise.all([
+    const [nav, hero, about, uses, featured, projects] = await Promise.all([
       loadJSON('data/navigation.json'),
       loadJSON('data/hero.json'),
       loadJSON('data/about.json'),
       loadJSON('data/uses.json'),
+      loadJSON('data/featured.json'),
+      loadJSON('data/projects.json'),
     ]);
     renderNav(nav.menuItems ?? nav.items ?? nav);
     renderHero(hero);
     renderAbout(about, uses);
     mountMarquee(TECH_STACK);
+    renderFeaturedProjects(featured);
+    // Dedupe by ORIGINAL projects.json title — these four entries in projects.json correspond to the featured cards above
+    const FEATURED_PROJECTS_JSON_TITLES = [
+      'url-shortener-service',
+      'Medical-Diagnostics-With-Ai-Agent',
+      'AWSight-Smart-Image-Classifier',
+      'AI-KNOWLEDGE-ASSISTANT',
+      'Distributed URL Shortener',
+      'AI-Agents-for-Medical-Diagnostics',
+      'Elastic Cloud Image Recognition Service',
+    ];
+    renderAllRepos(projects, FEATURED_PROJECTS_JSON_TITLES);
   } catch (err) {
     console.error('Bootstrap failed:', err);
   }
