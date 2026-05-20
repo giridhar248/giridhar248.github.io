@@ -148,38 +148,6 @@ export function renderFeaturedProjects(featured) {
   $('#featuredGrid').innerHTML = (featured.items ?? []).map(featuredCard).join('');
 }
 
-export function renderAllRepos(projects, featuredTitles) {
-  const featuredSet = new Set(featuredTitles);
-  const rest = (projects.projects ?? []).filter((p) => !featuredSet.has(p.title));
-  $('#allReposCount').textContent = `(${rest.length})`;
-
-  $('#allReposList').innerHTML = `
-    <table class="w-full text-sm">
-      <thead class="bg-surface/60 text-left text-xs uppercase tracking-widest text-text-lo">
-        <tr>
-          <th class="px-4 py-3">Repo</th>
-          <th class="px-4 py-3 hidden md:table-cell">Stack</th>
-          <th class="px-4 py-3 w-12"></th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-white/[0.06]">
-        ${rest
-          .map(
-            (p) => `
-          <tr class="bg-surface/40 hover:bg-surface/80 transition">
-            <td class="px-4 py-3 text-text-hi">${p.title}</td>
-            <td class="px-4 py-3 hidden md:table-cell text-text-mid">${(p.technologies ?? []).slice(0, 3).join(' · ') || '—'}</td>
-            <td class="px-4 py-3 text-right">
-              ${p.github ? `<a href="${p.github}" target="_blank" rel="noreferrer" class="text-text-mid hover:text-accent-2"><i class="fas fa-arrow-up-right-from-square"></i></a>` : ''}
-            </td>
-          </tr>`,
-          )
-          .join('')}
-      </tbody>
-    </table>
-  `;
-}
-
 function companyInitials(name) {
   return (name || '')
     .split(/\s+/)
@@ -294,13 +262,12 @@ const TECH_STACK = [
 // Bootstrap on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const [nav, hero, about, uses, featured, projects, experience, education, profile, siteConfig] = await Promise.all([
+    const [nav, hero, about, uses, featured, experience, education, profile, siteConfig] = await Promise.all([
       loadJSON('data/navigation.json'),
       loadJSON('data/hero.json'),
       loadJSON('data/about.json'),
       loadJSON('data/uses.json'),
       loadJSON('data/featured.json'),
-      loadJSON('data/projects.json'),
       loadJSON('data/experience.json'),
       loadJSON('data/education.json'),
       loadJSON('data/profile.json'),
@@ -314,17 +281,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     hydrateGitHubStats();
     renderExperience(experience);
     renderEducation(education);
-    // Dedupe by ORIGINAL projects.json title — these four entries in projects.json correspond to the featured cards above
-    const FEATURED_PROJECTS_JSON_TITLES = [
-      'url-shortener-service',
-      'Medical-Diagnostics-With-Ai-Agent',
-      'AWSight-Smart-Image-Classifier',
-      'AI-KNOWLEDGE-ASSISTANT',
-      'Distributed URL Shortener',
-      'AI-Agents-for-Medical-Diagnostics',
-      'Elastic Cloud Image Recognition Service',
-    ];
-    renderAllRepos(projects, FEATURED_PROJECTS_JSON_TITLES);
 
     // Copy-email behaviour
     mountCopyEmail(profile.contact.email);
