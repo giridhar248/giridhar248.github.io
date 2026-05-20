@@ -79,15 +79,44 @@ function startRotator(target, items, intervalMs = 2500) {
   target.style.transition = 'opacity 180ms ease';
 }
 
+export function renderAbout(about, uses) {
+  $('#aboutText').innerHTML = (about.paragraphs ?? []).map((p) => `<p>${p}</p>`).join('');
+  $('#aboutCurrently').textContent = about.currentlyLine ?? '';
+
+  $('#usesList').innerHTML = (uses.items ?? [])
+    .map(
+      (u) => `<li class="flex items-center justify-between text-text-mid">
+        <span class="flex items-center gap-2"><i class="${u.icon} text-accent-1/80"></i>${u.label}</span>
+        <span class="text-text-hi">${u.value}</span>
+      </li>`,
+    )
+    .join('');
+
+  $('#aboutStats').innerHTML = (about.stats ?? [])
+    .map(
+      (s) => `<div class="rounded-xl hairline bg-surface/60 backdrop-blur p-4 text-center">
+        <div class="text-2xl font-extrabold gradient-text">${s.value}</div>
+        <div class="mt-1 text-[11px] uppercase tracking-widest text-text-lo">${s.label}</div>
+      </div>`,
+    )
+    .join('');
+}
+
 // Reusable export so later tasks can import it
-export { $, $$, loadJSON, renderNav, renderHero };
+export { $, $$, loadJSON, renderNav, renderHero, renderAbout };
 
 // Bootstrap on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const [nav, hero] = await Promise.all([loadJSON('data/navigation.json'), loadJSON('data/hero.json')]);
+    const [nav, hero, about, uses] = await Promise.all([
+      loadJSON('data/navigation.json'),
+      loadJSON('data/hero.json'),
+      loadJSON('data/about.json'),
+      loadJSON('data/uses.json'),
+    ]);
     renderNav(nav.menuItems ?? nav.items ?? nav);
     renderHero(hero);
+    renderAbout(about, uses);
   } catch (err) {
     console.error('Bootstrap failed:', err);
   }

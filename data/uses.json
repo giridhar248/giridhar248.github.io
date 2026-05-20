@@ -1,0 +1,9 @@
+{
+  "_instructions": "Tools and setup that signal taste. Edit freely.",
+  "items": [
+    { "label": "Editor", "value": "VS Code", "icon": "fas fa-code" },
+    { "label": "Shell", "value": "zsh + starship", "icon": "fas fa-terminal" },
+    { "label": "Machine", "value": "MacBook Pro", "icon": "fas fa-laptop-code" },
+    { "label": "Theme", "value": "Catppuccin Mocha", "icon": "fas fa-palette" }
+  ]
+}
