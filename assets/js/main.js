@@ -120,11 +120,20 @@ function featuredCard(p) {
     .map((s) => `<span class="rounded-full hairline bg-surface px-2.5 py-1 text-xs text-text-mid">${s}</span>`)
     .join('');
   const repoSlug = (p.repo ?? '').replace('https://github.com/', '');
+  const cover = p.coverUrl
+    ? p.coverUrl
+    : repoSlug
+    ? `https://opengraph.githubassets.com/1/${repoSlug}`
+    : '';
   return `
     <article class="group relative overflow-hidden rounded-2xl hairline bg-surface/60 backdrop-blur transition hover:-translate-y-0.5 hover:border-accent-1/40 reveal">
-      <div class="relative h-32 bg-gradient-to-br ${grad}">
-        <div class="absolute inset-0 dot-grid opacity-50"></div>
-        <div class="absolute bottom-3 left-4 font-mono text-xs text-white/70" data-repo-slug="${repoSlug}">
+      <div class="relative h-44 bg-gradient-to-br ${grad}">
+        ${cover ? `<img src="${cover}" alt="${p.title} cover" loading="lazy"
+              class="absolute inset-0 h-full w-full object-cover"
+              onerror="this.remove()" />` : ''}
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+        <div class="absolute inset-0 dot-grid opacity-20"></div>
+        <div class="absolute bottom-3 left-4 font-mono text-xs text-white drop-shadow" data-repo-slug="${repoSlug}">
           <span data-stats="stars">★ —</span>
           <span class="mx-2">·</span>
           <span data-stats="updated">updated —</span>
