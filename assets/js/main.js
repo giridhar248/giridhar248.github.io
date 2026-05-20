@@ -202,6 +202,32 @@ export function renderExperience(experience) {
     .join('');
 }
 
+export function renderEducation(education) {
+  const eduItems = education.education ?? education.items ?? education ?? [];
+  const certItems = education.certifications ?? [];
+
+  $('#educationList').innerHTML = eduItems
+    .map(
+      (e) => `
+      <li class="rounded-xl hairline bg-surface/60 backdrop-blur p-5">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h3 class="font-bold text-text-hi">${e.degree ?? e.title ?? ''}</h3>
+          <span class="font-mono text-xs text-text-lo">${e.period ?? ''}</span>
+        </div>
+        <p class="mt-1 text-sm text-accent-2">${e.school ?? e.institution ?? ''}</p>
+      </li>`,
+    )
+    .join('');
+
+  $('#certGrid').innerHTML = certItems
+    .map(
+      (c) => `<span class="rounded-full hairline bg-surface/60 px-3 py-1.5 text-sm text-text-mid">
+        ${c.name ?? c.title ?? c}
+      </span>`,
+    )
+    .join('');
+}
+
 // Reusable export so later tasks can import it
 export { $, $$, loadJSON, renderNav, renderHero };
 
@@ -227,7 +253,7 @@ const TECH_STACK = [
 // Bootstrap on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const [nav, hero, about, uses, featured, projects, experience] = await Promise.all([
+    const [nav, hero, about, uses, featured, projects, experience, education] = await Promise.all([
       loadJSON('data/navigation.json'),
       loadJSON('data/hero.json'),
       loadJSON('data/about.json'),
@@ -235,6 +261,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       loadJSON('data/featured.json'),
       loadJSON('data/projects.json'),
       loadJSON('data/experience.json'),
+      loadJSON('data/education.json'),
     ]);
     renderNav(nav.menuItems ?? nav.items ?? nav);
     renderHero(hero);
@@ -243,6 +270,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderFeaturedProjects(featured);
     hydrateGitHubStats();
     renderExperience(experience);
+    renderEducation(education);
     // Dedupe by ORIGINAL projects.json title — these four entries in projects.json correspond to the featured cards above
     const FEATURED_PROJECTS_JSON_TITLES = [
       'url-shortener-service',

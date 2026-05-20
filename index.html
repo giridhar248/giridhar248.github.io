@@ -217,20 +217,18 @@
       </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-      <div class="container">
-        <h2 class="section-title"></h2>
-        <div class="education-content">
-          <div class="education-grid" id="educationGrid">
-            <!-- Education items will be loaded dynamically -->
-          </div>
-          <div class="certifications">
-            <h3></h3>
-            <div class="cert-grid" id="certGrid">
-              <!-- Certifications will be loaded dynamically -->
-            </div>
-          </div>
+    <!-- Education + Certifications -->
+    <section id="education" class="relative py-24">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 md:grid-cols-2">
+        <div class="reveal">
+          <p class="font-mono text-eyebrow uppercase text-accent-2">// education</p>
+          <h2 class="mt-3 text-h2 font-extrabold">Degrees.</h2>
+          <ul id="educationList" class="mt-6 space-y-4"></ul>
+        </div>
+        <div class="reveal">
+          <p class="font-mono text-eyebrow uppercase text-accent-2">// certifications</p>
+          <h2 class="mt-3 text-h2 font-extrabold">Receipts.</h2>
+          <div id="certGrid" class="mt-6 flex flex-wrap gap-2"></div>
         </div>
       </div>
     </section>
