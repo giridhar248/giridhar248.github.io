@@ -177,6 +177,31 @@ export function renderAllRepos(projects, featuredTitles) {
   `;
 }
 
+export function renderExperience(experience) {
+  const items = experience.experiences ?? experience.items ?? experience ?? [];
+  $('#experienceTimeline').innerHTML = items
+    .map(
+      (e) => `
+      <li class="relative reveal">
+        <span class="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full bg-accent-grad ring-4 ring-bg"></span>
+        <div class="rounded-xl hairline bg-surface/60 backdrop-blur p-5">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-lg font-bold text-text-hi">${e.title}</h3>
+            <span class="font-mono text-xs text-text-lo">${e.period ?? ''}</span>
+          </div>
+          <p class="mt-1 text-sm text-accent-2">${e.company ?? ''}${e.location ? ' · ' + e.location : ''}</p>
+          ${e.description ? `<p class="mt-3 text-sm text-text-mid">${e.description}</p>` : ''}
+          ${
+            (e.responsibilities ?? []).length
+              ? `<ul class="mt-3 list-disc pl-5 text-sm text-text-mid space-y-1">${(e.responsibilities ?? []).map((r) => `<li>${r}</li>`).join('')}</ul>`
+              : ''
+          }
+        </div>
+      </li>`,
+    )
+    .join('');
+}
+
 // Reusable export so later tasks can import it
 export { $, $$, loadJSON, renderNav, renderHero };
 
@@ -202,13 +227,14 @@ const TECH_STACK = [
 // Bootstrap on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const [nav, hero, about, uses, featured, projects] = await Promise.all([
+    const [nav, hero, about, uses, featured, projects, experience] = await Promise.all([
       loadJSON('data/navigation.json'),
       loadJSON('data/hero.json'),
       loadJSON('data/about.json'),
       loadJSON('data/uses.json'),
       loadJSON('data/featured.json'),
       loadJSON('data/projects.json'),
+      loadJSON('data/experience.json'),
     ]);
     renderNav(nav.menuItems ?? nav.items ?? nav);
     renderHero(hero);
@@ -216,6 +242,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     mountMarquee(TECH_STACK);
     renderFeaturedProjects(featured);
     hydrateGitHubStats();
+    renderExperience(experience);
     // Dedupe by ORIGINAL projects.json title — these four entries in projects.json correspond to the featured cards above
     const FEATURED_PROJECTS_JSON_TITLES = [
       'url-shortener-service',
