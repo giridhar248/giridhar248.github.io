@@ -3,17 +3,17 @@
    ========================================================================== */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #07070b;
+  background-color: #f6fbf5;
 }
 
 body {
-  background-color: #07070b;
-  color: #f4f4f5;
+  background-color: #f6fbf5;
+  color: #0a2e16;
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,13 +21,13 @@ body {
 }
 
 ::selection {
-  background-color: rgba(139, 92, 246, 0.4);
-  color: #f4f4f5;
+  background-color: rgba(22, 163, 74, 0.25);
+  color: #0a2e16;
 }
 
 /* Dot grid mask used behind the hero mesh */
 .dot-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(15, 64, 24, 0.10) 1px, transparent 1px);
   background-size: 32px 32px;
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
@@ -35,12 +35,12 @@ body {
 
 /* Hairline border helper used by glass surfaces */
 .hairline {
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(15, 64, 24, 0.10);
 }
 
 /* Gradient text used for accent words */
 .gradient-text {
-  background: linear-gradient(90deg, #8b5cf6 0%, #22d3ee 100%);
+  background: linear-gradient(90deg, #16a34a 0%, #65a30d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -61,18 +61,13 @@ body {
   transform: none;
 }
 
-/* Reduced motion: kill mesh drifts, marquee, reveal transforms */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
+  .reveal { opacity: 1; transform: none; }
 }

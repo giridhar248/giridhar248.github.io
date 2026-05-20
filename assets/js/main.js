@@ -5,6 +5,7 @@ import { mountMarquee } from './lib/marquee.js';
 import { hydrateGitHubStats } from './lib/github-stats.js';
 import { mountCopyEmail } from './lib/copy-email.js';
 import { mountCommandPalette } from './lib/command-palette.js';
+import { mountScrollReveal } from './lib/scroll-reveal.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -316,6 +317,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       { label: 'View resume', icon: 'fas fa-file-pdf', hint: 'pdf', run: () => window.open('documents/Giridhar_Reddy_Resume.pdf', '_blank') },
     ];
     mountCommandPalette(cmdkActions);
+    mountScrollReveal();
   } catch (err) {
     console.error('Bootstrap failed:', err);
   }
