@@ -1,21 +1,14 @@
 {
   "_instructions": "About section content.",
-  "sectionTitle": "About Me",
+  "sectionTitle": "About",
+  "currentlyLine": "Building distributed systems and exploring multi-agent AI.",
   "paragraphs": [
-    "Passionate professional with experience in delivering innovative solutions."
+    "I'm a software engineer drawn to systems that have to be fast, resilient, and easy to reason about — distributed backends, agent orchestration, and the glue between them.",
+    "Recent work: a 10K-req/min URL shortener in Spring Boot, a multi-agent medical-diagnostics pipeline on GPT-4o, and a cloud-native image classifier on AWS. I write Java, Python, and C/C++; deploy with Docker and Kubernetes."
   ],
-  "statistics": [
-    {
-      "value": "1+",
-      "label": "Years Experience"
-    },
-    {
-      "value": "6+",
-      "label": "Projects Completed"
-    },
-    {
-      "value": "26+",
-      "label": "Technologies"
-    }
+  "stats": [
+    { "label": "Years experience", "value": "1+" },
+    { "label": "Public repos", "value": "20+", "live": "repos" },
+    { "label": "Languages", "value": "6" }
   ]
 }
