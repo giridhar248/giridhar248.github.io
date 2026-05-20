@@ -1,18 +1,20 @@
 {
-  "_instructions": "Site-wide configuration and meta tags. Update these values for SEO and branding.",
+  "_instructions": "Site-wide configuration and meta tags.",
   "meta": {
-    "title": "GIRIDHAR REDDY MEKAPOTHULA | Software Engineer",
-    "description": "GIRIDHAR REDDY MEKAPOTHULA - Software Engineer | Portfolio",
-    "author": "GIRIDHAR REDDY MEKAPOTHULA",
-    "keywords": "Software Engineer, Portfolio, GIRIDHAR REDDY MEKAPOTHULA"
+    "title": "Giridhar Reddy Mekapothula — Software Engineer",
+    "description": "Software Engineer building distributed systems, AI agents, and backend services.",
+    "author": "Giridhar Reddy Mekapothula",
+    "keywords": "Giridhar Reddy, Software Engineer, Distributed Systems, AI Agents, Java, Python, Backend, Portfolio"
   },
   "branding": {
-    "name": "GIRIDHAR REDDY MEKAPOTHULA",
+    "name": "Giridhar Reddy Mekapothula",
+    "monogram": "GR",
     "tagline": "Software Engineer"
   },
   "settings": {
     "year": 2026,
     "enableAnimations": true,
-    "navbarScrollEffect": true
+    "navbarScrollEffect": true,
+    "deployTimestamp": "2026-05-20T00:00:00Z"
   }
 }

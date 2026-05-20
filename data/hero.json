@@ -1,50 +1,28 @@
 {
-  "_instructions": "Hero section content - the first thing visitors see on your portfolio.",
+  "_instructions": "Hero section content. Owner: Giridhar Reddy Mekapothula.",
+  "eyebrow": "// software engineer",
   "greeting": "Hi, I'm",
-  "name": "GIRIDHAR REDDY MEKAPOTHULA",
+  "name": "Giridhar Reddy",
+  "surnameGradient": "Mekapothula",
   "title": "Software Engineer",
-  "summary": "Software Engineer with 1+ years of experience specializing in Java, C/C++, Python.",
-  "avatarUrl": "/avatar.png",
-  "highlights": [
-    {
-      "icon": "fas fa-briefcase",
-      "text": "Professional Experience"
-    },
-    {
-      "icon": "fas fa-code",
-      "text": "Technical Expertise"
-    },
-    {
-      "icon": "fas fa-users",
-      "text": "Team Collaboration"
-    }
+  "rotatingSubtitles": [
+    "Distributed Systems",
+    "AI Agents",
+    "Backend Engineering"
   ],
+  "summary": "Software engineer with 1+ years building distributed backends, AI-agent systems, and cloud-native services in Java, Python, and C/C++.",
+  "avatarUrl": "assets/images/avatar.jpg",
+  "openToWork": true,
   "cta": {
     "buttons": [
-      {
-        "text": "Get In Touch",
-        "href": "#contact",
-        "type": "primary",
-        "external": false
-      },
-      {
-        "text": "View My Work",
-        "href": "#projects",
-        "type": "secondary",
-        "external": false
-      }
+      { "text": "View work", "href": "#projects", "type": "primary", "external": false, "icon": "fas fa-arrow-right" },
+      { "text": "Get resume", "href": "documents/Giridhar_Reddy_Resume.pdf", "type": "secondary", "external": false, "icon": "fas fa-download" },
+      { "text": "Copy email", "href": "#", "type": "ghost", "external": false, "icon": "fas fa-envelope", "action": "copy-email" }
     ]
   },
   "socialLinks": [
-    {
-      "platform": "LinkedIn",
-      "url": "https://linkedin.com/in/giridhar-reddy-46759b210/",
-      "icon": "fab fa-linkedin"
-    },
-    {
-      "platform": "Email",
-      "url": "mailto:giridharreddy2212@gmail.com",
-      "icon": "fas fa-envelope"
-    }
+    { "platform": "GitHub", "url": "https://github.com/giridhar248", "icon": "fab fa-github" },
+    { "platform": "LinkedIn", "url": "https://linkedin.com/in/giridhar-reddy-46759b210/", "icon": "fab fa-linkedin" },
+    { "platform": "Email", "url": "mailto:giridharreddy2212@gmail.com", "icon": "fas fa-envelope" }
   ]
 }

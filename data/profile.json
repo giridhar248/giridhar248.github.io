@@ -1,8 +1,8 @@
 {
   "profile": {
-    "name": "GIRIDHAR REDDY MEKAPOTHULA",
+    "name": "Giridhar Reddy Mekapothula",
     "title": "Software Engineer",
-    "bio": "Professional portfolio"
+    "bio": "I build distributed systems and AI-agent pipelines — currently focused on backend services in Java/Spring and orchestration with Python."
   },
   "contact": {
     "email": "giridharreddy2212@gmail.com",
@@ -11,8 +11,8 @@
     "linkedin": "https://linkedin.com/in/giridhar-reddy-46759b210/"
   },
   "siteConfig": {
-    "domain": "",
-    "title": "GIRIDHAR REDDY MEKAPOTHULA - Portfolio",
-    "description": "Professional portfolio"
+    "domain": "giridhar248.github.io",
+    "title": "Giridhar Reddy Mekapothula — Software Engineer",
+    "description": "Software Engineer building distributed systems, AI agents, and backend services."
   }
 }
