@@ -271,6 +271,21 @@
       mountScrollProgress();
       mountScrollReveal();
     </script>
+    <!-- Command Palette Modal -->
+    <div id="cmdkRoot"
+         class="fixed inset-0 z-[90] hidden items-start justify-center p-4 pt-[15vh]"
+         style="background-color: rgba(7,7,11,0.7); backdrop-filter: blur(8px);"
+         role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="w-full max-w-lg rounded-xl hairline bg-surface shadow-2xl">
+        <div class="flex items-center gap-2 border-b border-white/[0.06] px-3 py-2">
+          <i class="fas fa-magnifying-glass text-text-lo"></i>
+          <input id="cmdkInput" type="text" placeholder="Type to search…"
+                 class="w-full bg-transparent py-1.5 text-text-hi placeholder:text-text-lo focus:outline-none" />
+          <span class="font-mono text-[10px] text-text-lo">esc</span>
+        </div>
+        <ul id="cmdkList" class="max-h-80 overflow-y-auto p-2 space-y-1"></ul>
+      </div>
+    </div>
     <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>

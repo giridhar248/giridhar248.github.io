@@ -4,6 +4,7 @@
 import { mountMarquee } from './lib/marquee.js';
 import { hydrateGitHubStats } from './lib/github-stats.js';
 import { mountCopyEmail } from './lib/copy-email.js';
+import { mountCommandPalette } from './lib/command-palette.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -302,6 +303,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Footer year + deploy date
     $('#footerYear').textContent = String(siteConfig.settings?.year ?? new Date().getFullYear());
     $('#footerDeployed').textContent = (siteConfig.settings?.deployTimestamp ?? new Date().toISOString()).slice(0, 10);
+
+    // Command palette
+    const cmdkActions = [
+      { label: 'Goto Projects', icon: 'fas fa-folder', hint: '#projects', run: () => { location.hash = '#projects'; } },
+      { label: 'Goto About', icon: 'fas fa-circle-info', hint: '#about', run: () => { location.hash = '#about'; } },
+      { label: 'Goto Experience', icon: 'fas fa-briefcase', hint: '#experience', run: () => { location.hash = '#experience'; } },
+      { label: 'Goto Contact', icon: 'fas fa-envelope', hint: '#contact', run: () => { location.hash = '#contact'; } },
+      { label: 'Copy email', icon: 'fas fa-copy', hint: '⏎', run: () => document.querySelector('[data-action="copy-email"]')?.click() },
+      { label: 'Open GitHub', icon: 'fab fa-github', hint: '↗', run: () => window.open('https://github.com/giridhar248', '_blank') },
+      { label: 'Open LinkedIn', icon: 'fab fa-linkedin', hint: '↗', run: () => window.open('https://linkedin.com/in/giridhar-reddy-46759b210/', '_blank') },
+      { label: 'View resume', icon: 'fas fa-file-pdf', hint: 'pdf', run: () => window.open('documents/Giridhar_Reddy_Resume.pdf', '_blank') },
+    ];
+    mountCommandPalette(cmdkActions);
   } catch (err) {
     console.error('Bootstrap failed:', err);
   }
