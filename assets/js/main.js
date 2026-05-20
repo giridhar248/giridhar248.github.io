@@ -2,6 +2,7 @@
 // Each render function is small and isolated.
 
 import { mountMarquee } from './lib/marquee.js';
+import { hydrateGitHubStats } from './lib/github-stats.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -214,6 +215,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderAbout(about, uses);
     mountMarquee(TECH_STACK);
     renderFeaturedProjects(featured);
+    hydrateGitHubStats();
     // Dedupe by ORIGINAL projects.json title — these four entries in projects.json correspond to the featured cards above
     const FEATURED_PROJECTS_JSON_TITLES = [
       'url-shortener-service',
