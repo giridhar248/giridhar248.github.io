@@ -7,6 +7,7 @@
       "company": "Cigniti Technologies",
       "period": "January 2025 - Present",
       "location": "",
+      "logoDomain": "cigniti.com",
       "description": "Designed and shipped a Spring Boot microservice that syncs records via Salesforce CDC events between Salesforce and a DocumentDB archive store in real-time; reduced per-GB storage cost by ~99%. Re-architected cross-team event integration by replacing point-to-point producer-consumer couplings with a publish-subscribe pattern on a centralized event bus, decoupling 8+ downstream microservices. Optimized a high-throughput Redis-backed microservice by migrating segment storage from HashSets to Bitmaps, cutting memory footprint ~64x. Built a serverless document-ingestion microservice integrating API Gateway, Lambda, and S3 with a Spring Boot Salesforce-facing service. Diagnosed and resolved production data-sync defects across legacy SQL, Salesforce, and DocumentDB.",
       "responsibilities": [
         "Designed and shipped a Spring Boot microservice that syncs records via Salesforce CDC events between Salesforce and a DocumentDB archive store in real-time; reduced per-GB storage cost by ~99%",
@@ -21,6 +22,7 @@
       "company": "Tejas Networks",
       "period": "July 2022 - July 2023",
       "location": "",
+      "logoDomain": "tejasnetworks.com",
       "description": "Built and shipped a Django + PostgreSQL web app replacing a manual spreadsheet workflow; cut per-site planning time from ~3 hours to ~20 minutes. Shipped two C++ OSPF features (RFC 1765, RFC 4577) to Tier-1 telecom customers; reduced control-plane CPU by ~30% on 200-node topologies. Diagnosed leaks and CPU hotspots in a production C++ daemon using Valgrind/GDB; redesigned a hot-path data structure, cutting CPU ~20% per node. Replaced brute-force shortest-path with indexed Dijkstra over tuned PostgreSQL queries, cutting latency ~70%.",
       "responsibilities": [
         "Built and shipped a Django + PostgreSQL web app replacing a manual spreadsheet workflow; cut per-site planning time from ~3 hours to ~20 minutes",
@@ -34,6 +36,7 @@
       "company": "Infosoft Solutions",
       "period": "June 2021 - May 2022",
       "location": "",
+      "logoDomain": "",
       "description": "Maintained and extended Global Pay Plus payments platform serving 30+ client banks using Java, Spring Boot, Angular, and SQL. Resolved 16+ critical production defects through systematic debugging and root cause analysis. Owned and triaged 200+ production issues across the high-value payments flow. Designed an automated payment-rejection capture pipeline that persists failures to the database and surfaces them on the UI in ~5 seconds. Built a Java notification API on AWS with a CI/CD pipeline delivering insights from 10M+ data points.",
       "responsibilities": [
         "Maintained and extended Global Pay Plus payments platform serving 30+ client banks using Java, Spring Boot, Angular, and SQL",

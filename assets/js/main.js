@@ -180,6 +180,27 @@ export function renderAllRepos(projects, featuredTitles) {
   `;
 }
 
+function companyInitials(name) {
+  return (name || '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+}
+
+function companyMarkHTML(e) {
+  const initials = companyInitials(e.company);
+  if (e.logoDomain) {
+    return `<div class="company-logo grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-md hairline bg-white" data-initials="${initials}">
+      <img src="https://logo.clearbit.com/${e.logoDomain}?size=80" alt="${e.company} logo"
+           class="h-full w-full object-contain p-1.5" />
+    </div>`;
+  }
+  return `<div class="grid h-10 w-10 shrink-0 place-items-center rounded-md hairline bg-white text-xs font-mono font-bold text-text-mid">${initials}</div>`;
+}
+
 export function renderExperience(experience) {
   const items = experience.experiences ?? experience.items ?? experience ?? [];
   $('#experienceTimeline').innerHTML = items
@@ -188,21 +209,38 @@ export function renderExperience(experience) {
       <li class="relative reveal">
         <span class="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full bg-accent-grad ring-4 ring-bg"></span>
         <div class="rounded-xl hairline bg-surface/60 backdrop-blur p-5">
-          <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="text-lg font-bold text-text-hi">${e.title}</h3>
-            <span class="font-mono text-xs text-text-lo">${e.period ?? ''}</span>
+          <div class="flex items-start gap-4">
+            ${companyMarkHTML(e)}
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="text-lg font-bold text-text-hi">${e.title}</h3>
+                <span class="font-mono text-xs text-text-lo">${e.period ?? ''}</span>
+              </div>
+              <p class="mt-1 text-sm text-accent-2">${e.company ?? ''}${e.location ? ' · ' + e.location : ''}</p>
+              ${e.description ? `<p class="mt-3 text-sm text-text-mid">${e.description}</p>` : ''}
+              ${
+                (e.responsibilities ?? []).length
+                  ? `<ul class="mt-3 list-disc pl-5 text-sm text-text-mid space-y-1">${(e.responsibilities ?? []).map((r) => `<li>${r}</li>`).join('')}</ul>`
+                  : ''
+              }
+            </div>
           </div>
-          <p class="mt-1 text-sm text-accent-2">${e.company ?? ''}${e.location ? ' · ' + e.location : ''}</p>
-          ${e.description ? `<p class="mt-3 text-sm text-text-mid">${e.description}</p>` : ''}
-          ${
-            (e.responsibilities ?? []).length
-              ? `<ul class="mt-3 list-disc pl-5 text-sm text-text-mid space-y-1">${(e.responsibilities ?? []).map((r) => `<li>${r}</li>`).join('')}</ul>`
-              : ''
-          }
         </div>
       </li>`,
     )
     .join('');
+
+  // Graceful Clearbit fallback: swap failed images for the initials block.
+  $('#experienceTimeline').querySelectorAll('.company-logo img').forEach((img) => {
+    img.addEventListener('error', () => {
+      const parent = img.parentElement;
+      const initials = parent?.dataset.initials || '?';
+      if (parent) {
+        parent.classList.remove('overflow-hidden');
+        parent.innerHTML = `<span class="text-xs font-mono font-bold text-text-mid">${initials}</span>`;
+      }
+    });
+  });
 }
 
 export function renderEducation(education) {
