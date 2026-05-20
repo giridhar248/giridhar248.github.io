@@ -1,0 +1,21 @@
+{
+  "_instructions": "About section content.",
+  "sectionTitle": "About Me",
+  "paragraphs": [
+    "Passionate professional with experience in delivering innovative solutions."
+  ],
+  "statistics": [
+    {
+      "value": "1+",
+      "label": "Years Experience"
+    },
+    {
+      "value": "6+",
+      "label": "Projects Completed"
+    },
+    {
+      "value": "26+",
+      "label": "Technologies"
+    }
+  ]
+}

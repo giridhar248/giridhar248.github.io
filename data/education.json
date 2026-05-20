@@ -1,0 +1,25 @@
+{
+  "_instructions": "Add your education and certifications here.",
+  "sectionTitle": "Education & Certifications",
+  "certificationsTitle": "Certifications",
+  "education": [
+    {
+      "degree": "Master's",
+      "school": "Lamar University",
+      "institution": "Lamar University",
+      "period": "July 2023 - May 2025",
+      "details": "GPA: 4.0",
+      "description": "GPA: 4.0"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect – Associate",
+      "issuer": "Amazon Web Services"
+    },
+    {
+      "name": "Outstanding Graduate Student Award",
+      "issuer": "Lamar University"
+    }
+  ]
+}

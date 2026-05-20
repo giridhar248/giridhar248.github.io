@@ -1,0 +1,253 @@
+{
+  "_instructions": "Add your projects here. Each project should showcase your work.",
+  "sectionTitle": "Featured Projects",
+  "projects": [
+    {
+      "title": "Distributed URL Shortener",
+      "description": "Designed and built a high-throughput URL shortening service handling 10K+ requests/minute using Spring Boot, with Redis caching and MySQL for persistent storage. Implemented consistent hashing for distributed key generation. Containerized the full stack with Docker Compose.",
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Redis",
+        "MySQL",
+        "Docker",
+        "Nginx",
+        "JMeter"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "",
+      "demo": ""
+    },
+    {
+      "title": "AI-Agents-for-Medical-Diagnostics",
+      "description": "Architected a multi-agent AI diagnostic system using GPT-4o and Python, leveraging multithreading to process patient data 15% faster. Optimized inter-agent communication, reducing response time by 30%. Deployed with Kubernetes orchestration.",
+      "technologies": [
+        "Python",
+        "GPT-4o",
+        "Kubernetes",
+        "Docker"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "",
+      "demo": ""
+    },
+    {
+      "title": "Elastic Cloud Image Recognition Service",
+      "description": "Designed and deployed a cloud-native image classification service on AWS, processing 100+ concurrent requests using SQS and auto-scaling EC2 instances. Built a Node.js web tier for image uploads and Python-based inference workers.",
+      "technologies": [
+        "Python",
+        "Node.js",
+        "AWS (EC2, SQS, S3, CloudWatch)"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "",
+      "demo": ""
+    },
+    {
+      "title": "spring-boot-3-jwt-security",
+      "description": "Interactive application built for continuous learning",
+      "technologies": [
+        "Java"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/spring-boot-3-jwt-security",
+      "demo": "https://github.com/giridhar248/spring-boot-3-jwt-security"
+    },
+    {
+      "title": "bank-app-spring-cloud-microservices",
+      "description": "Modern web application demonstrating clean code principles",
+      "technologies": [
+        "Java"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/bank-app-spring-cloud-microservices",
+      "demo": "https://github.com/giridhar248/bank-app-spring-cloud-microservices"
+    },
+    {
+      "title": "personal-ai",
+      "description": "Modern web application demonstrating clean code principles",
+      "technologies": [
+        "TypeScript",
+        "JavaScript"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/personal-ai",
+      "demo": "https://github.com/giridhar248/personal-ai"
+    },
+    {
+      "title": "langchain-rag-retrieval-augmented-generation-for-document-understanding",
+      "description": "Learning project built with modern web technologies",
+      "technologies": [
+        "Jupyter Notebook"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/langchain-rag-retrieval-augmented-generation-for-document-understanding",
+      "demo": "https://github.com/giridhar248/langchain-rag-retrieval-augmented-generation-for-document-understanding"
+    },
+    {
+      "title": "ai-based-fraud-detection",
+      "description": "Portfolio project showcasing development capabilities",
+      "technologies": [
+        "Jupyter Notebook",
+        "Python"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/ai-based-fraud-detection",
+      "demo": "https://github.com/giridhar248/ai-based-fraud-detection"
+    },
+    {
+      "title": "url-shortener-service",
+      "description": "High-throughput URL shortening service — Spring Boot, Redis, MySQL, Nginx, Docker",
+      "technologies": [
+        "Java",
+        "Dockerfile"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/url-shortener-service",
+      "demo": "https://github.com/giridhar248/url-shortener-service"
+    },
+    {
+      "title": "AI-KNOWLEDGE-ASSISTANT",
+      "description": "An intelligent multi-agent system for processing and querying personal knowledge bases. Built with LangChain, LangGraph, and Ollama, it leverages Retrieval-Augmented Generation (RAG) to deliver contextual, accurate responses. Features include multi-agent orchestration, a modern web interface, vector-based document storage",
+      "technologies": [
+        "Python",
+        "HTML"
+      ],
+      "icon": "fas fa-brain",
+      "github": "https://github.com/giridhar248/AI-KNOWLEDGE-ASSISTANT",
+      "demo": "https://github.com/giridhar248/AI-KNOWLEDGE-ASSISTANT"
+    },
+    {
+      "title": "contribution-history",
+      "description": "Generated GitHub contribution history",
+      "technologies": [],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/contribution-history",
+      "demo": "https://github.com/giridhar248/contribution-history"
+    },
+    {
+      "title": "Personal-Portfolio",
+      "description": "GitHub repository: Personal-Portfolio",
+      "technologies": [
+        "TypeScript",
+        "CSS",
+        "JavaScript"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/Personal-Portfolio",
+      "demo": "https://personal-portfolio-rouge-one-20.vercel.app"
+    },
+    {
+      "title": "resume-tailor",
+      "description": "GitHub repository: resume-tailor",
+      "technologies": [
+        "Python"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/resume-tailor",
+      "demo": "https://github.com/giridhar248/resume-tailor"
+    },
+    {
+      "title": "System-Design",
+      "description": "GitHub repository: System-Design",
+      "technologies": [
+        "C++"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/System-Design",
+      "demo": "https://github.com/giridhar248/System-Design"
+    },
+    {
+      "title": "Medical-Diagnostics-With-Ai-Agent",
+      "description": "GitHub repository: Medical-Diagnostics-With-Ai-Agent",
+      "technologies": [
+        "Python"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/Medical-Diagnostics-With-Ai-Agent",
+      "demo": "https://github.com/giridhar248/Medical-Diagnostics-With-Ai-Agent"
+    },
+    {
+      "title": "Mern-Stack-Project",
+      "description": "GitHub repository: Mern-Stack-Project",
+      "technologies": [
+        "JavaScript",
+        "CSS",
+        "HTML"
+      ],
+      "icon": "fas fa-brain",
+      "github": "https://github.com/giridhar248/Mern-Stack-Project",
+      "demo": "https://github.com/giridhar248/Mern-Stack-Project"
+    },
+    {
+      "title": "airbnb-clone",
+      "description": "GitHub repository: airbnb-clone",
+      "technologies": [
+        "TypeScript",
+        "JavaScript",
+        "CSS"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/airbnb-clone",
+      "demo": "https://github.com/giridhar248/airbnb-clone"
+    },
+    {
+      "title": "FullStack-Social-Network-Application-simulating-Instagram",
+      "description": "GitHub repository: FullStack-Social-Network-Application-simulating-Instagram",
+      "technologies": [
+        "JavaScript",
+        "HTML"
+      ],
+      "icon": "fas fa-brain",
+      "github": "https://github.com/giridhar248/FullStack-Social-Network-Application-simulating-Instagram",
+      "demo": "https://github.com/giridhar248/FullStack-Social-Network-Application-simulating-Instagram"
+    },
+    {
+      "title": "Divy_up",
+      "description": "GitHub repository: Divy_up",
+      "technologies": [
+        "Dart",
+        "Swift",
+        "Kotlin",
+        "Objective-C"
+      ],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/Divy_up",
+      "demo": "https://github.com/giridhar248/Divy_up"
+    },
+    {
+      "title": "html-css-assignment",
+      "description": "GitHub repository: html-css-assignment",
+      "technologies": [
+        "HTML"
+      ],
+      "icon": "fas fa-brain",
+      "github": "https://github.com/giridhar248/html-css-assignment",
+      "demo": "https://github.com/giridhar248/html-css-assignment"
+    },
+    {
+      "title": "green-log",
+      "description": "GitHub repository: green-log",
+      "technologies": [],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/green-log",
+      "demo": "https://github.com/giridhar248/green-log"
+    },
+    {
+      "title": "WhiteBoard-Brain-Storming",
+      "description": "GitHub repository: WhiteBoard-Brain-Storming",
+      "technologies": [],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/WhiteBoard-Brain-Storming",
+      "demo": "https://github.com/giridhar248/WhiteBoard-Brain-Storming"
+    },
+    {
+      "title": "AWSight-Smart-Image-Classifier",
+      "description": "GitHub repository: AWSight-Smart-Image-Classifier",
+      "technologies": [],
+      "icon": "fas fa-project-diagram",
+      "github": "https://github.com/giridhar248/AWSight-Smart-Image-Classifier",
+      "demo": "https://github.com/giridhar248/AWSight-Smart-Image-Classifier"
+    }
+  ]
+}

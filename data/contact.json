@@ -1,0 +1,62 @@
+{
+  "_instructions": "Contact section.",
+  "sectionTitle": "Get In Touch",
+  "contactInfo": [
+    {
+      "type": "email",
+      "icon": "fas fa-envelope",
+      "label": "Email",
+      "value": "giridharreddy2212@gmail.com",
+      "href": "mailto:giridharreddy2212@gmail.com"
+    },
+    {
+      "type": "phone",
+      "icon": "fas fa-phone",
+      "label": "Phone",
+      "value": "+1 (409) 757-0402",
+      "href": "tel:14097570402"
+    },
+    {
+      "type": "location",
+      "icon": "fas fa-map-marker-alt",
+      "label": "Location",
+      "value": "Houston, Tx, USA",
+      "href": null
+    },
+    {
+      "type": "linkedin",
+      "icon": "fab fa-linkedin",
+      "label": "LinkedIn",
+      "value": "in/LinkedIn Profile",
+      "href": "https://linkedin.com/in/giridhar-reddy-46759b210/"
+    }
+  ],
+  "form": {
+    "fields": [
+      {
+        "id": "name",
+        "type": "text",
+        "placeholder": "Your Name",
+        "required": true
+      },
+      {
+        "id": "email",
+        "type": "email",
+        "placeholder": "Your Email",
+        "required": true
+      },
+      {
+        "id": "message",
+        "type": "textarea",
+        "placeholder": "Your Message",
+        "rows": 5,
+        "required": true
+      }
+    ],
+    "submitButton": {
+      "text": "Send Message",
+      "type": "primary"
+    },
+    "successMessage": "Thank you for your message!"
+  }
+}
