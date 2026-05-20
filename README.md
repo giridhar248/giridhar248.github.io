@@ -1,25 +1,46 @@
-# Professional Portfolio Template
+# Giridhar Reddy Mekapothula — Portfolio
 
-A modern, responsive portfolio website template that's easy to customize and deploy. Built with vanilla HTML, CSS, and JavaScript - no frameworks required!
+Live: <https://giridhar248.github.io/>
 
-## ✨ Features
+Personal portfolio. Vanilla HTML + Tailwind (Play CDN) + JS modules, no build step. Content in `data/*.json`.
 
-- 🎨 **Fully Customizable** - Easy JSON-based configuration
-- 📱 **Responsive Design** - Looks great on all devices
-- 🎯 **SEO Optimized** - Meta tags and semantic HTML
-- 🚀 **Fast Loading** - Lightweight with no heavy frameworks
-- 📊 **Dynamic Content** - All content loaded from JSON files
-- 🎭 **Smooth Animations** - Professional scroll effects
-- 📝 **Well Documented** - Clear instructions and examples
+## Local dev
 
-## 🎨 Color Scheme
+```bash
+python3 -m http.server 8000
+# or: npx http-server -p 8000 -o
+```
 
-Current professional palette:
-- **Primary (Teal):** `#154D57`
-- **Secondary (Beige):** `#B7A08B`
-- **Background (Cream):** `#FEFAF7`
+Then open <http://localhost:8000>.
 
-Easily customize in `assets/css/styles.css` - just update the CSS variables!
+## Test
+
+```bash
+node --test tests/scroll-progress.test.js tests/github-stats.test.js tests/command-palette.test.js
+```
+
+## Structure
+
+```
+assets/
+  css/styles.css        — base tokens + reduced-motion fallback
+  js/main.js            — content loaders + section renderers
+  js/lib/*.js           — gradient-mesh, scroll-progress, scroll-reveal, marquee,
+                          command-palette, github-stats, copy-email
+  images/avatar.jpg     — hero photo
+  images/logos/*.svg    — tech logos for the stack marquee
+data/                   — JSON content
+docs/superpowers/       — design spec + implementation plan
+404.html                — custom 404
+```
+
+## Customize
+
+Edit JSON in `data/`. No rebuild needed.
+
+---
+
+(Original template README below for reference.)
 
 ## 📁 Project Structure
 
