@@ -77,21 +77,32 @@
       };
     </script>
   </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-      <div class="container">
-        <div class="nav-brand">
-          <a href="#home"></a>
-        </div>
-        <button class="nav-toggle" id="navToggle">
-          <span></span>
-          <span></span>
-          <span></span>
+  <body class="font-sans bg-bg text-text-hi antialiased">
+    <!-- Scroll progress -->
+    <div class="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-accent-grad"
+         id="scroll-progress" style="transform: scaleX(0);"></div>
+
+    <!-- Gradient mesh background container (mounted by JS) -->
+    <div id="gradient-mesh" class="fixed inset-0 -z-10"></div>
+
+    <!-- Skip link for a11y -->
+    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-surface focus:px-3 focus:py-2 focus:text-text-hi focus:hairline">
+      Skip to content
+    </a>
+
+    <!-- Navigation (rebuilt in Task 5) -->
+    <nav class="fixed top-0 left-0 right-0 z-50 hairline backdrop-blur-xl" id="navbar"
+         style="background-color: rgba(7,7,11,0.7);">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="#home" class="text-lg font-extrabold gradient-text">GR</a>
+        <ul class="hidden md:flex gap-6 text-sm text-text-mid" id="navMenu"></ul>
+        <button class="hidden md:flex items-center gap-1.5 rounded-md hairline px-2.5 py-1 text-xs text-text-mid hover:text-text-hi transition"
+                id="cmdkBtn" aria-label="Open command palette">
+          <span class="font-mono">⌘</span><span>K</span>
         </button>
-        <ul class="nav-menu" id="navMenu">
-          <!-- Navigation items will be loaded dynamically -->
-        </ul>
+        <button class="md:hidden text-text-mid" id="navToggle" aria-label="Open menu">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
       </div>
     </nav>
 
@@ -205,6 +216,14 @@
       </div>
     </footer>
 
+    <script type="module">
+      import { mountGradientMesh } from './assets/js/lib/gradient-mesh.js';
+      import { mountScrollProgress } from './assets/js/lib/scroll-progress.js';
+      import { mountScrollReveal } from './assets/js/lib/scroll-reveal.js';
+      mountGradientMesh();
+      mountScrollProgress();
+      mountScrollReveal();
+    </script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

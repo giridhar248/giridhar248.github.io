@@ -2,6 +2,7 @@
   "name": "adarsh-umesh-portfolio",
   "version": "1.0.0",
   "description": "Professional portfolio website for Adarsh Umesh - Product Manager & Full-Stack Engineer",
+  "type": "module",
   "main": "index.html",
   "scripts": {
     "start": "python -m http.server 8000",
