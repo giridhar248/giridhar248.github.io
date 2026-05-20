@@ -106,26 +106,44 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            <span id="heroGreeting"></span> <span class="highlight" id="heroName"></span>
+    <!-- Hero -->
+    <section id="home" class="relative min-h-screen pt-28 pb-20">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 md:grid-cols-12">
+        <!-- Copy -->
+        <div class="md:col-span-7 reveal">
+          <p class="font-mono text-eyebrow uppercase text-accent-2" id="heroEyebrow"></p>
+          <h1 class="mt-4 font-extrabold tracking-tight text-display">
+            <span id="heroName"></span>
+            <span class="gradient-text" id="heroSurname"></span>
           </h1>
-          <h2 class="hero-subtitle" id="heroTitle"></h2>
-          <p class="hero-description" id="heroSummary"></p>
-          <div class="hero-highlights" id="heroHighlights">
-            <!-- Highlights will be loaded dynamically -->
-          </div>
-          <div class="hero-cta" id="heroCTA">
-            <!-- CTA buttons will be loaded dynamically -->
-          </div>
-          <div class="social-links" id="heroSocial">
-            <!-- Social links will be loaded dynamically -->
+          <p class="mt-4 text-2xl text-text-mid">
+            <span class="font-mono text-accent-2">&gt;</span>
+            <span id="heroRotator" class="text-text-hi">&nbsp;</span><span class="text-accent-2 animate-pulse">_</span>
+          </p>
+          <p class="mt-6 max-w-xl text-base leading-relaxed text-text-mid" id="heroSummary"></p>
+          <div class="mt-8 flex flex-wrap items-center gap-3" id="heroCTA"></div>
+          <div class="mt-6 flex items-center gap-3" id="heroSocial"></div>
+        </div>
+
+        <!-- Avatar card -->
+        <div class="md:col-span-5 reveal">
+          <div class="relative mx-auto w-fit">
+            <div class="absolute -inset-1 rounded-3xl bg-accent-grad opacity-60 blur-md"></div>
+            <div class="relative overflow-hidden rounded-3xl hairline bg-surface p-2">
+              <img id="heroAvatar" alt="Giridhar Reddy Mekapothula portrait"
+                   class="block h-80 w-80 rounded-2xl object-cover md:h-96 md:w-96" />
+            </div>
+            <div id="openToWorkBadge"
+                 class="absolute -bottom-3 left-1/2 hidden -translate-x-1/2 items-center gap-2 rounded-full hairline bg-surface px-4 py-1.5 text-xs text-text-hi shadow-lg"
+                 style="background-color: rgba(14,14,20,0.9);">
+              <span class="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Open to work
+            </div>
           </div>
         </div>
       </div>
+      <!-- Toast slot (used by copy-email) -->
+      <div id="toastRoot" class="fixed bottom-6 left-1/2 z-[80] -translate-x-1/2"></div>
     </section>
 
     <!-- About Section -->
@@ -224,6 +242,6 @@
       mountScrollProgress();
       mountScrollReveal();
     </script>
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
